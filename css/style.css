@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(37, 37, 37);
+}
+
+.formOutline{
+    background-color: rgb(226, 226, 226);
+    width: 520px;
+    margin: 20px auto;
+    border-radius: 8px;
+    padding: 20px;
+}
