@@ -51,6 +51,7 @@
 
                 <button type="submit" name="submitSignup" class="btn btn-primary">Submit</button>
             </form>
+            <br>    
 
 
         <?php
@@ -83,6 +84,20 @@
         ?>
 
 
+        <?php
+            if(isset($_SESSION['successUpdate'])){
+        ?>
+            <div class="alertBox">
+                <div class="alert alert-success" role="alert">
+                <?php echo $_SESSION['successUpdate']; ?>
+                </div>
+            </div>
+
+        <?php
+            }
+            unset ($_SESSION['successUpdate']);
+        ?>
+
 
 
 
@@ -96,7 +111,8 @@
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
                             <th scope="col">UID</th>
-                            <th scope="col-2">Delete </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Update </th>
                         </tr>
                    </thead>
                    <tbody>
@@ -114,6 +130,9 @@
                                         <button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger" name="del" value="<?php echo $row['id'];?>">Delete</button>
                                     </form>
                                 </td>
+                                <td><form action="update.php" method="get">
+                                    <button class="btn btn-success" type="submit" name="update" value="<?php echo $row['id']; ?>">Update</button>
+                                </form></td>
                             </tr>
                         <?php
                             endforeach;
@@ -121,10 +140,6 @@
                    </tbody>
             </table>
         </div>
-
-        <script>
-           
-        </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
